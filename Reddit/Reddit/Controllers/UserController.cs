@@ -48,7 +48,8 @@ namespace Reddit.Controllers
                     throw new InvalidOperationException("Could not create user ");
                 }
             }
-            return View(model);
+
+            return View("Register");
         }
     }
 }
