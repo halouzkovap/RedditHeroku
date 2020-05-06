@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Reddit.Entities.Post>
+
+@{
+    ViewData["Title"] = "UserPost";
+}
+
+<h1>Hello, @User.Identity.Name</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Like)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Titel)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.PostingDate)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+            
+                @Html.DisplayFor(modelItem => item.Like)
+            
+            </td>
+            <td>
+                <a href=" @Html.DisplayFor(modelItem => item.PostUrl)">@Html.DisplayFor(modelItem => item.Titel)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostingDate)
+            </td>
+
+            <td>
+                <a asp-action="EditPost" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> 
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

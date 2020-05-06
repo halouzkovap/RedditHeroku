@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Reddit.Entities.Post>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Here you can see all posts from our user</h1>
+
+
+
+    <form asp-controller="Home" asp-action="List">
+        <p>
+          <input class="form-control"  type="text" name="SearchString" placeholder="Search post">
+            
+        </p>
+    </form>
+
+    <table class="table">
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+            <tr>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Like)
+
+                </td>
+                <td><a asp-action="Voting" asp-route-id="@item.Id" asp-route-number="1"><i class="far fa-thumbs-up"></i></a></td>
+                <td><a asp-action="Voting" asp-route-id="@item.Id" asp-route-number="-1"><i class="far fa-thumbs-down"></i></a></td>
+                <td>
+                    <a href=" @Html.DisplayFor(modelItem => item.PostUrl)" target="_blank">@Html.DisplayFor(modelItem => item.Titel)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostingDate)
+                </td>
+                @if (User.Identity.IsAuthenticated && User.Identity.Name == "Admin@seznam.cz")
+                {
+                    <td><a asp-controller="Post"  asp-action="Delete" asp-route-id="@item.Id"><i class="far fa-trash-alt"></i></a></td>
+                }
+
+            </tr>
+            }
+        </tbody>
+    </table>
+

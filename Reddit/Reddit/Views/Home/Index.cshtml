@@ -1,0 +1,38 @@
+﻿@model Reddit.ViewModel.PostViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Trending posts</h1>
+<br />
+<br />
+
+<table class="table">
+
+    <tbody>
+        @foreach (var item in Model.Posts)
+        {
+
+        <tr>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.Like)
+
+            </td>
+            <td><a asp-action="Voting" asp-route-id="@item.Id" asp-route-number="1"><i class="far fa-thumbs-up"></i></a></td>
+            <td><a asp-action="Voting" asp-route-id="@item.Id" asp-route-number="-1"><i class="far fa-thumbs-down"></i></a></td>
+            <td>
+                <a href=" @Html.DisplayFor(modelItem => item.PostUrl)" target="_blank">@Html.DisplayFor(modelItem => item.Titel)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostingDate)
+            </td>
+
+        </tr>
+            }
+    </tbody>
+</table>
+<br />
+<br />
+
+<a class="btn btn-info" asp-controller="Post" asp-action="CreatePost">Submit new post</a>
