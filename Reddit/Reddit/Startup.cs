@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -43,17 +41,8 @@ namespace Reddit
            ).AddEntityFrameworkStores<RedditDbContext>();
 
 
-            services.AddAuthentication(o =>
-            {
-                o.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                o.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
-            })
-                .AddCookie()
-                .AddGoogle(o =>
-                {
-                    o.ClientId = Configuration["Google:ClientId"];
-                    o.ClientSecret = Configuration["Google:ClientSecret"];
-                });
+            services.AddAuthentication();
+
             //services.ConfigureApplicationCookie(options =>
             //{
             //    // Cookie settings
