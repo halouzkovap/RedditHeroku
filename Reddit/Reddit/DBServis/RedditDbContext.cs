@@ -14,6 +14,9 @@ namespace Reddit.DBServis
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Post>()
+                .Property(p => p.PostingDate)
+                .HasDefaultValueSql("NOW()");
 
         }
 
