@@ -8610,11 +8610,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\42073\\Heroku\\RedditHeroku\\Reddit\\Reddit\\Reddit.csproj",
+      "projectUniqueName": "C:\\Users\\42073\\RedditHeroku\\Reddit\\Reddit\\Reddit.csproj",
       "projectName": "Reddit",
-      "projectPath": "C:\\Users\\42073\\Heroku\\RedditHeroku\\Reddit\\Reddit\\Reddit.csproj",
+      "projectPath": "C:\\Users\\42073\\RedditHeroku\\Reddit\\Reddit\\Reddit.csproj",
       "packagesPath": "C:\\Users\\42073\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\42073\\Heroku\\RedditHeroku\\Reddit\\Reddit\\obj\\",
+      "outputPath": "C:\\Users\\42073\\RedditHeroku\\Reddit\\Reddit\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
